@@ -115,9 +115,10 @@ public class BasicOperations {
             }
             current=current.next;
         }
-        if (a!=null && isNull(b)) {
+        if (a!=null) {
                 current.next=a;
-        } else if (b!=null && isNull(a)) {
+        }
+        if (b!=null) {
                 current.next=b;
         }
         return mergedList.next;
