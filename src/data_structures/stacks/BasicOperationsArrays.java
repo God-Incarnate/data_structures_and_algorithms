@@ -61,7 +61,8 @@ public class BasicOperationsArrays {
 
     public static boolean isValid(String s) {
         if (s.length() % 2 != 0) return false;
-
+        //can use LinkedList<Character> stack = new LinkedList<>() as well, but ArrayDeque is more efficient for stack operations.
+        //can use Stack<Character> stack = new Stack<>(); as well, but ArrayDeque is more efficient for stack operations.
         //can use ArrayList<Character> stack = new ArrayList<>(); as well, but Deque is more efficient for stack operations.
         Deque<Character> stack = new ArrayDeque<>();
 
@@ -69,11 +70,15 @@ public class BasicOperationsArrays {
             if (c == '(' || c == '{' || c == '[') {
                 stack.push(c);
                 //stack.add(c); // for ArrayList
+                //stack.add(0, c); // for LinkedList
+                //stack.push(c); // for Stack
             }
             else {
                 if (stack.isEmpty()) return false;
                 char top = stack.pop();
                 //char top = stack.remove(stack.size() - 1); // for ArrayList
+                //char top = stack.removeFirst(); // for LinkedList
+                //char top = stack.pop(); // for Stack
                 if ((c == ')' && top != '(') ||
                         (c == '}' && top != '{') ||
                         (c == ']' && top != '[')) {
@@ -83,7 +88,9 @@ public class BasicOperationsArrays {
         }
 
         return stack.isEmpty();
-                //&& stack.size() == 0; // for ArrayList
+        //&& stack.size() == 0; // for ArrayList
+        //&& stack.isEmpty(); // for LinkedList
+        //&& stack.isEmpty(); // for Stack
     }
     /*ArrayList vs ArrayDeque (important note)
 
@@ -94,6 +101,25 @@ public class BasicOperationsArrays {
 
         - Slightly better performance
 
-        - Clearer intent */
+        - Clearer intent
+
+        LinkedList allows O(1) insert/remove from the end
+
+        Perfect fit for LIFO (stack) behavior
+
+        Logic is identical to ArrayDeque, just a different backing structure
+
+        ⚔️ Interview tip
+
+        If asked:
+
+        ArrayDeque vs LinkedList?
+
+        Answer:
+
+        ArrayDeque → faster & cache-friendly
+
+        LinkedList → conceptually clearer, but extra memory overhead*/
+
 
 }
