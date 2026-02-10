@@ -85,5 +85,15 @@ public class BasicOperationsArrays {
         return stack.isEmpty();
                 //&& stack.size() == 0; // for ArrayList
     }
+    /*ArrayList vs ArrayDeque (important note)
+
+        ArrayList works fine here
+        But ArrayDeque is preferred for stack operations because:
+
+        - Cleaner API (push/pop/peek)
+
+        - Slightly better performance
+
+        - Clearer intent */
 
 }
