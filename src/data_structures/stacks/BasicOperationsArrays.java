@@ -62,15 +62,18 @@ public class BasicOperationsArrays {
     public static boolean isValid(String s) {
         if (s.length() % 2 != 0) return false;
 
+        //can use ArrayList<Character> stack = new ArrayList<>(); as well, but Deque is more efficient for stack operations.
         Deque<Character> stack = new ArrayDeque<>();
 
         for (char c : s.toCharArray()) {
             if (c == '(' || c == '{' || c == '[') {
                 stack.push(c);
+                //stack.add(c); // for ArrayList
             }
             else {
                 if (stack.isEmpty()) return false;
                 char top = stack.pop();
+                //char top = stack.remove(stack.size() - 1); // for ArrayList
                 if ((c == ')' && top != '(') ||
                         (c == '}' && top != '{') ||
                         (c == ']' && top != '[')) {
@@ -80,6 +83,7 @@ public class BasicOperationsArrays {
         }
 
         return stack.isEmpty();
+                //&& stack.size() == 0; // for ArrayList
     }
 
 }
