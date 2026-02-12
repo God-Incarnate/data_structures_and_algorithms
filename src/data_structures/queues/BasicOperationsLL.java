@@ -9,6 +9,11 @@ public class BasicOperationsLL {
         System.out.println("Adding Value to queue: ");
         push(4);
         push(6);
+        System.out.println("Current queue:::::::");
+        printQueue();
+        dequeue();
+
+        System.out.println("Current queue:::::::");
         printQueue();
     }
 
@@ -24,11 +29,27 @@ public class BasicOperationsLL {
 
     public static void printQueue() {
         ListNode current=front;
+        System.out.print("[ ");
         while (current!=null){
             System.out.print(current.val+" ");
             current=current.next;
         }
+        System.out.print("]");
     }
 
+    public static void dequeue(){
+        if (front==null){
+            System.out.println("\nNo Element in queue to delete");
+            return;
+        }
+        if(front == rear){
+            System.out.println("\nRemoved value: "+ front.val);
+            front=front.next;
+            rear=rear.next;
+            return;
+        }
+        System.out.println("\nRemoved value: "+ front.val);
+        front=front.next;
+    }
 
 }
