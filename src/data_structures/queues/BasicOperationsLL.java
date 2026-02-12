@@ -5,7 +5,7 @@ import data_structures.linked_list.ListNode;
 public class BasicOperationsLL {
     static ListNode front, rear;
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         System.out.println("Adding Value to queue: ");
         push(4);
         push(6);
