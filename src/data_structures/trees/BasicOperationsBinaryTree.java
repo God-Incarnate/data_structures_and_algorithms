@@ -3,8 +3,8 @@ package data_structures.trees;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BasicOperations {
-    static TreeNode tree;
+public class BasicOperationsBinaryTree {
+    static BTTreeNode tree;
     static void main(String[] args) {
 
         treeCreator();
@@ -20,13 +20,13 @@ public class BasicOperations {
     }
 
     public static void treeCreator(){
-        tree=new TreeNode(1);
-        TreeNode c1=new TreeNode(2);
-        TreeNode c2=new TreeNode(3);
-        TreeNode c3=new TreeNode(4);
-        TreeNode c4=new TreeNode(5);
-        TreeNode c5=new TreeNode(6);
-        TreeNode c6=new TreeNode(7);
+        tree=new BTTreeNode(1);
+        BTTreeNode c1=new BTTreeNode(2);
+        BTTreeNode c2=new BTTreeNode(3);
+        BTTreeNode c3=new BTTreeNode(4);
+        BTTreeNode c4=new BTTreeNode(5);
+        BTTreeNode c5=new BTTreeNode(6);
+        BTTreeNode c6=new BTTreeNode(7);
 
         tree.left=c1;
         tree.right=c2;
@@ -49,11 +49,11 @@ public class BasicOperations {
             System.out.println("Tree is EMPTY!!");
             return;
         }
-        Queue<TreeNode> queue=new LinkedList<>();
+        Queue<BTTreeNode> queue=new LinkedList<>();
 
         queue.add(tree);
         while (!queue.isEmpty()) {
-         TreeNode current=queue.poll();
+         BTTreeNode current=queue.poll();
          System.out.print(current.val+" ");
          if (current.left!=null) {
              queue.add(current.left);
@@ -64,7 +64,7 @@ public class BasicOperations {
         }
     }
     //Following is DFS
-    public static void preOrderPrint(TreeNode node) {
+    public static void preOrderPrint(BTTreeNode node) {
         if(tree==null) {
             System.out.println("Tree is Empty!!");
             return;
@@ -74,7 +74,7 @@ public class BasicOperations {
         if(node.right!=null) preOrderPrint(node.right);
     }
     //Following is DFS
-    public static void inOrderPrint(TreeNode node) {
+    public static void inOrderPrint(BTTreeNode node) {
         if(tree==null) {
             System.out.println("Tree is Empty!!");
             return;
@@ -84,7 +84,7 @@ public class BasicOperations {
         if(node.right!=null) inOrderPrint(node.right);
     }
     //following is DFS
-    public static void postOrderPrint(TreeNode node) {
+    public static void postOrderPrint(BTTreeNode node) {
         if(tree==null) {
             System.out.println("Tree is Empty!!");
             return;
