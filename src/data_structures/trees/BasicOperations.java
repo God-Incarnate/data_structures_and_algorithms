@@ -8,6 +8,7 @@ public class BasicOperations {
     static void main(String[] args) {
 
         treeCreator();
+        System.out.println("Tree CREATED-----");
         System.out.println("level Order traversal: ");
         levelOrderPrint();
         System.out.println("\npre Order traversal: ");
@@ -33,6 +34,14 @@ public class BasicOperations {
         c1.right=c4;
         c3.left=c5;
         c3.right=c6;
+        /* Tree created is as follows:
+                1
+               / \
+              2   3
+             / \
+            4   5
+           / \
+          6   7                    */
     }
     //This is BFS
     public static void levelOrderPrint() {
