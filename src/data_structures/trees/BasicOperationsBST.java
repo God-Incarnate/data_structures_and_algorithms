@@ -43,25 +43,36 @@ public class BasicOperationsBST {
      * Worst case = O(n) if tree becomes skewed
      */
     public static void insert(int x) {
+        // If tree is empty → new node becomes root
         if (bstTree==null) {
             bstTree=new BTTreeNode(x);
             return;
         }
+        // current → node we are checking
+        // prev → parent of current
         BTTreeNode current = bstTree;
         BTTreeNode prev = bstTree;
+
+        // Traverse tree until we reach end of respective position
         while(current!=null){
             if(current.val>x){
+                // Move left because x is smaller
                 prev=current;
                 current=current.left;
             } else if(current.val<x) {
+                // Move right because x is bigger
                 prev=current;
                 current=current.right;
             } else {
+                // Duplicate found → not allowed
                 System.out.println("ERROR - Duplicate Entries Not Allowed!!!!.");
                 return;
             }
         }
+        // Create new node after finding correct position
         current=new BTTreeNode(x);
+        
+        // Attach node to parent
         if(prev.val>x){
             prev.left=current;
         } else {
