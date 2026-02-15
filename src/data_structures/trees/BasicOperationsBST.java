@@ -4,9 +4,15 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class BasicOperationsBST {
+    /**
+     * Root node of the Binary Search Tree.
+     * All insertions and traversals start from this node.
+     */
     static BTTreeNode bstTree;
 
     static void main(String[] args) {
+        // Insert values into BST
+        // Order matters in BST structure
         insert(8);
         insert(4);
         insert(10);
@@ -23,6 +29,19 @@ public class BasicOperationsBST {
         inOrderPrint(bstTree);
     }
 
+    /**
+     * Inserts a value into the Binary Search Tree.
+     *
+     * BST Property:
+     * left subtree  -> values smaller than node
+     * right subtree -> values greater than node
+     *
+     * Duplicate values are not allowed.
+     *
+     * Time Complexity:
+     * O(h) where h = height of tree
+     * Worst case = O(n) if tree becomes skewed
+     */
     public static void insert(int x) {
         if (bstTree==null) {
             bstTree=new BTTreeNode(x);
