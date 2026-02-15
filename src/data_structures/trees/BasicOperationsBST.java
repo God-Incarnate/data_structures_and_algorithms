@@ -71,7 +71,7 @@ public class BasicOperationsBST {
         }
         // Create new node after finding correct position
         current=new BTTreeNode(x);
-        
+
         // Attach node to parent
         if(prev.val>x){
             prev.left=current;
@@ -80,27 +80,59 @@ public class BasicOperationsBST {
         }
     }
 
+    /**
+     * Prints BST in InOrder traversal.
+     *
+     * Order:
+     * Left → Root → Right
+     *
+     * Property:
+     * In BST, this prints values in sorted order.
+     */
     public static void inOrderPrint(BTTreeNode node) {
+        // If tree empty
         if(bstTree==null) {
             System.out.println("Tree is Empty!!");
             return;
         }
+        // Visit left subtree
         if(node.left!=null) inOrderPrint(node.left);
+        // Print current node
         System.out.print(node.val+" ");
+        // Visit right subtree
         if(node.right!=null) inOrderPrint(node.right);
     }
 
+    /**
+     * Prints BST in Level Order (Breadth First Search).
+     *
+     * Uses Queue:
+     * Visit nodes level by level.
+     *
+     * Example:
+     *        8
+     *      /   \
+     *     4     10
+     * Output → 8 4 10 3 6 9 12 ...
+     */
     public static void levelOrderPrint() {
+        // If tree empty
         if (bstTree==null) {
             System.out.println("Tree is EMPTY!!");
             return;
         }
+        // Queue used for BFS traversal
         Queue<BTTreeNode> queue=new LinkedList<>();
 
+        // Start with root
         queue.add(bstTree);
         while (!queue.isEmpty()) {
+            // Remove front node
             BTTreeNode current=queue.poll();
+            // Print node value
             System.out.print(current.val+" ");
+
+            // Add children to queue
             if (current.left!=null) {
                 queue.add(current.left);
             }
