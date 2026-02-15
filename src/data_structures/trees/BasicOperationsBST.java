@@ -19,8 +19,8 @@ public class BasicOperationsBST {
         insert(11);
         System.out.println("Leve order traversal:::::");
         levelOrderPrint();
-//        System.out.println("\nInOrder traversal:::::");
-//        inOrderPrint(bstTree);
+        System.out.println("\nInOrder traversal:::::");
+        inOrderPrint(bstTree);
     }
 
     public static void insert(int x) {
@@ -48,6 +48,16 @@ public class BasicOperationsBST {
         } else {
             prev.right=current;
         }
+    }
+
+    public static void inOrderPrint(BTTreeNode node) {
+        if(bstTree==null) {
+            System.out.println("Tree is Empty!!");
+            return;
+        }
+        if(node.left!=null) inOrderPrint(node.left);
+        System.out.print(node.val+" ");
+        if(node.right!=null) inOrderPrint(node.right);
     }
 
     public static void levelOrderPrint() {
