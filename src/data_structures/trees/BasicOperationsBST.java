@@ -80,6 +80,38 @@ public class BasicOperationsBST {
         }
     }
 
+    /** Optimized insert() below:::::::**/
+
+//    public static void insert(int x) {
+//        if (bstTree == null) {
+//            bstTree = new BTTreeNode(x);
+//            return;
+//        }
+//
+//        BTTreeNode current = bstTree;
+//
+//        while (true) {
+//            if (x < current.val) {
+//                if (current.left == null) {
+//                    current.left = new BTTreeNode(x);
+//                    return;
+//                }
+//                current = current.left;
+//            }
+//            else if (x > current.val) {
+//                if (current.right == null) {
+//                    current.right = new BTTreeNode(x);
+//                    return;
+//                }
+//                current = current.right;
+//            }
+//            else {
+//                System.out.println("ERROR - Duplicate Entries Not Allowed!");
+//                return;
+//            }
+//        }
+//    }
+
     /**
      * Prints BST in InOrder traversal.
      *
