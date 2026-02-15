@@ -17,8 +17,8 @@ public class BasicOperationsBST {
         insert(5);
         insert(7);
         insert(11);
-//        System.out.println("Leve order traversal:::::");
-//        levelOrderPrint();
+        System.out.println("Leve order traversal:::::");
+        levelOrderPrint();
 //        System.out.println("\nInOrder traversal:::::");
 //        inOrderPrint(bstTree);
     }
@@ -47,6 +47,26 @@ public class BasicOperationsBST {
             prev.left=current;
         } else {
             prev.right=current;
+        }
+    }
+
+    public static void levelOrderPrint() {
+        if (bstTree==null) {
+            System.out.println("Tree is EMPTY!!");
+            return;
+        }
+        Queue<BTTreeNode> queue=new LinkedList<>();
+
+        queue.add(bstTree);
+        while (!queue.isEmpty()) {
+            BTTreeNode current=queue.poll();
+            System.out.print(current.val+" ");
+            if (current.left!=null) {
+                queue.add(current.left);
+            }
+            if (current.right!=null) {
+                queue.add(current.right);
+            }
         }
     }
 }
