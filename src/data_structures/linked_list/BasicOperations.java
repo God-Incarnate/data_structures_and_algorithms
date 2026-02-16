@@ -98,6 +98,20 @@ public class BasicOperations {
         return lastNode;
     }
 
+    /*Steps:
+            1. If one list is null, return the other list because merging with empty list gives the same list.
+            2. Create a dummy node to simplify handling of the head.
+            3. Use a pointer 'current' to build the merged list.
+            4. Compare nodes from both lists:
+                - Attach the smaller node to merged list.
+                - Move pointer of that list forward.
+            5. Continue until one list becomes empty.
+            6. Attach remaining nodes from the non-empty list.
+            7. Return mergedList.next because mergedList is a dummy node.
+
+    Time Complexity: O(n + m)
+    Space Complexity: O(1)
+*/
     public static ListNode mergeSortedLists(ListNode a,ListNode b){
         if (isNull(a)) return b;
         if (isNull(b)) return a;
