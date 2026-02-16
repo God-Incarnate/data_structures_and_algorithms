@@ -173,4 +173,29 @@ public class BasicOperationsBST {
             }
         }
     }
+
+    public static void remove(int x){
+        if (bstTree==null) {
+            System.out.println("Tree is Empty!!");
+            return;
+        }
+        BTTreeNode current=bstTree;
+        while (true){
+            if (x < current.val){
+                if (current.left!=null && current.left.val!=x){
+                    current=current.left;
+                } else if (current.left==null){
+                    System.out.println("No such value exists in BST!!");
+                    return;
+                } else {
+                    BTTreeNode update=current.left.left;
+                    current.left=current.left.right;
+                    updateNode(update);
+                }
+
+            } else {
+                current=current.right;
+            }
+        }
+    }
 }
