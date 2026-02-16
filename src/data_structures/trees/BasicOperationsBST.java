@@ -174,28 +174,54 @@ public class BasicOperationsBST {
         }
     }
 
+    // Removes a node with value x from the Binary Search Tree
     public static void remove(int x){
-        if (bstTree==null) {
+
+        // If tree is empty, nothing to delete
+        if (bstTree == null) {
             System.out.println("Tree is Empty!!");
             return;
         }
-        BTTreeNode current=bstTree;
+
+        // Start traversal from root
+        BTTreeNode current = bstTree;
+
+        // Infinite loop until value is found or confirmed absent
         while (true){
+
+            // If x is smaller, go to left subtree
             if (x < current.val){
-                if (current.left!=null && current.left.val!=x){
-                    current=current.left;
-                } else if (current.left==null){
+
+                // If left child exists and is not the target, keep moving left
+                if (current.left != null && current.left.val != x){
+                    current = current.left;
+                }
+
+                // If left child doesn't exist, value is not in BST
+                else if (current.left == null){
                     System.out.println("No such value exists in BST!!");
                     return;
-                } else {
-                    BTTreeNode update=current.left.left;
-                    current.left=current.left.right;
+                }
+
+                // If left child is the node to delete
+                else {
+                    // Save left subtree of the node to be deleted
+                    BTTreeNode update = current.left.left;
+
+                    // Replace the node with its right subtree
+                    current.left = current.left.right;
+
+                    // Reinsert saved subtree back into BST
                     updateNode(update);
                 }
 
-            } else {
-                current=current.right;
+            }
+
+            // If x is greater or equal, go to right subtree
+            else {
+                current = current.right;
             }
         }
     }
+
 }
