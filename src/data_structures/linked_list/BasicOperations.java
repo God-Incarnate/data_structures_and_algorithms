@@ -1,7 +1,5 @@
 package data_structures.linked_list;
 
-import java.util.Map;
-
 import static java.util.Objects.isNull;
 
 public class BasicOperations {
