@@ -98,5 +98,38 @@ public class BasicOperations {
         String formatted = String.format("%s %d", "Age", 20); // O(n)
         String repeated = "ha".repeat(3); // O(n*k)
 
+        // -------------------------------
+        // 12. IMPORTANT PROGRAMS
+        // -------------------------------
+
+        // Reverse string → O(n) time, O(n) space
+        String original = "Java";
+        String reversed = new StringBuilder(original).reverse().toString();
+
+        // Palindrome → O(n)
+        String p = "madam";
+        boolean isPalindrome = p.equals(new StringBuilder(p).reverse().toString());
+
+        // Anagram → O(n log n)
+        String sA = "listen";
+        String sB = "silent";
+        char[] c1 = sA.toCharArray();
+        char[] c2 = sB.toCharArray();
+        java.util.Arrays.sort(c1);
+        java.util.Arrays.sort(c2);
+        boolean isAnagram = java.util.Arrays.equals(c1,c2);
+
+
+        // -------------------------------
+        // PRINT SAMPLE OUTPUT
+        // -------------------------------
+        System.out.println("Length: " + len);
+        System.out.println("Trimmed: " + trimmed);
+        System.out.println("Uppercase: " + upper);
+        System.out.println("Contains 'gram': " + contains);
+        System.out.println("Reversed: " + reversed);
+        System.out.println("Is Palindrome: " + isPalindrome);
+        System.out.println("Is Anagram: " + isAnagram);
+
     }
 }
