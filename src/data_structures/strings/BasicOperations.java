@@ -11,5 +11,38 @@ public class BasicOperations {
 
         char[] arr = {'H', 'i'};
         String s3 = new String(arr);      // O(n) time, O(n) space
+
+        // -------------------------------
+        // 2. BASIC METHODS
+        // -------------------------------
+        String s = "  Java Programming  ";
+
+        int len = s.length();             // O(1) time, O(1) space
+        char ch = s.charAt(2);            // O(1) time, O(1) space
+        boolean empty = s.isEmpty();      // O(1) time, O(1) space
+        String trimmed = s.trim();        // O(n) time, O(n) space
+        String lower = s.toLowerCase();   // O(n) time, O(n) space
+        String upper = s.toUpperCase();   // O(n) time, O(n) space
+
+
+        // -------------------------------
+        // 3. STRING COMPARISON
+        // -------------------------------
+        String a = "Java";
+        String b = "java";
+
+        boolean eq = a.equals(b);               // O(n) time, O(1) space
+        boolean eqIgnore = a.equalsIgnoreCase(b); // O(n) time
+        int cmp = a.compareTo(b);               // O(n) time
+
+
+        // -------------------------------
+        // 4. SEARCHING
+        // -------------------------------
+        boolean contains = s.contains("gram"); // O(n*m) worst case
+        int index = s.indexOf("g");            // O(n)
+        int lastIndex = s.lastIndexOf("g");    // O(n)
+        boolean start = s.startsWith("  J");   // O(m)
+        boolean end = s.endsWith("ing  ");     // O(m)
     }
 }
