@@ -185,42 +185,30 @@ public class BasicOperationsBST {
 
         // Start traversal from root
         BTTreeNode current = bstTree;
+        BTTreeNode prev;
 
         // Infinite loop until value is found or confirmed absent
-        while (true){
+        while (current!=null){
 
             // If x is smaller, go to left subtree
             if (x < current.val){
-
-                // If left child exists and is not the target, keep moving left
-                if (current.left != null && current.left.val != x){
-                    current = current.left;
-                }
-
-                // If left child doesn't exist, value is not in BST
-                else if (current.left == null){
-                    System.out.println("No such value exists in BST!!");
-                    return;
-                }
-
-                // If left child is the node to delete
-                else {
-                    // Save left subtree of the node to be deleted
-                    BTTreeNode update = current.left.left;
-
-                    // Replace the node with its right subtree
-                    current.left = current.left.right;
-
-                    // Reinsert saved subtree back into BST
-                    updateNode(update);
-                }
-
+                prev=current;
+                current=current.left;
             }
-
             // If x is greater or equal, go to right subtree
-            else {
+            else if(x> current.val){
+                prev=current;
                 current = current.right;
+            } else {
+                break;
             }
+        }
+        if (current==null) {
+            System.out.println("No such ELEMENT found.");
+            return;
+        }
+        if(current.left==null || current.right==null){
+
         }
     }
 
