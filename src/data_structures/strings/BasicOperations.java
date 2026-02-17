@@ -44,5 +44,20 @@ public class BasicOperations {
         int lastIndex = s.lastIndexOf("g");    // O(n)
         boolean start = s.startsWith("  J");   // O(m)
         boolean end = s.endsWith("ing  ");     // O(m)
+
+        // -------------------------------
+        // 5. SUBSTRING
+        // -------------------------------
+        String sub1 = s.substring(2);      // O(n)
+        String sub2 = s.substring(2, 6);   // O(n)
+
+
+        // -------------------------------
+        // 6. MODIFYING STRINGS
+        // -------------------------------
+        String replaced = s.replace("a", "x");     // O(n)
+        String replacedAll = s.replaceAll("a", "x"); // O(n) + regex cost
+        String concat = a.concat(" Rocks");        // O(n+m)
+        String joined = String.join("-", "A","B","C"); // O(total length)
     }
 }
