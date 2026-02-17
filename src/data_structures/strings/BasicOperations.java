@@ -59,5 +59,44 @@ public class BasicOperations {
         String replacedAll = s.replaceAll("a", "x"); // O(n) + regex cost
         String concat = a.concat(" Rocks");        // O(n+m)
         String joined = String.join("-", "A","B","C"); // O(total length)
+
+        // -------------------------------
+        // 7. SPLIT
+        // -------------------------------
+        String[] parts = s.split(" ");     // O(n)
+
+
+        // -------------------------------
+        // 8. CONVERSIONS
+        // -------------------------------
+        int num = Integer.parseInt("123");  // O(n)
+        String numStr = String.valueOf(123); // O(n)
+        char[] charArray = s.toCharArray(); // O(n)
+
+
+        // -------------------------------
+        // 9. STRINGBUILDER OPERATIONS
+        // -------------------------------
+        StringBuilder sb = new StringBuilder("Hello");
+
+        sb.append(" World");   // O(1) amortized
+        sb.insert(0,"Hi ");    // O(n)
+        sb.delete(0,2);        // O(n)
+        sb.reverse();          // O(n)
+
+        // -------------------------------
+        // 10. CHARACTER CHECKS
+        // -------------------------------
+        boolean digit = Character.isDigit('5');  // O(1)
+        boolean letter = Character.isLetter('A'); // O(1)
+
+
+        // -------------------------------
+        // 11. ADVANCED METHODS
+        // -------------------------------
+        boolean match = "abc123".matches("[a-z0-9]+"); // O(n)
+        String formatted = String.format("%s %d", "Age", 20); // O(n)
+        String repeated = "ha".repeat(3); // O(n*k)
+
     }
 }
