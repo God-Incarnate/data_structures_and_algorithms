@@ -132,4 +132,23 @@ public class BasicOperations {
         System.out.println("Is Anagram: " + isAnagram);
 
     }
+/*
+    | Operation             | Time Complexity | Space Complexity |
+| --------------------- | --------------- | ---------------- |
+| length(), charAt()    | O(1)            | O(1)             |
+| equals(), compareTo() | O(n)            | O(1)             |
+| substring()           | O(n)            | O(n)             |
+| replace()             | O(n)            | O(n)             |
+| contains(), indexOf() | O(n*m) worst    | O(1)             |
+| split()               | O(n)            | O(n)             |
+| toUpperCase()         | O(n)            | O(n)             |
+| concat()              | O(n+m)          | O(n+m)           |
+| toCharArray()         | O(n)            | O(n)             |
+| parseInt()            | O(n)            | O(1)             |
+| StringBuilder append  | O(1) amortized  | O(n)             |
+| reverse()             | O(n)            | O(n)             |
+| palindrome check      | O(n)            | O(n)             |
+| anagram check         | O(n log n)      | O(n)             |
+
+*/
 }
