@@ -27,6 +27,11 @@ public class BasicOperationsBST {
         levelOrderPrint();
         System.out.println("\nInOrder traversal:::::");
         inOrderPrint(bstTree);
+        remove(4);
+        System.out.println("\nLeve order traversal:::::");
+        levelOrderPrint();
+        System.out.println("\nInOrder traversal:::::");
+        inOrderPrint(bstTree);
     }
 
     /**
@@ -219,7 +224,12 @@ public class BasicOperationsBST {
                 bstTree=subtree;
             }
         } else {
-            
+            BTTreeNode swapNode=current.right;
+            while (swapNode.left!=null) {
+                swapNode=swapNode.left;
+            }
+            remove(swapNode.val);
+            current.val=swapNode.val;
         }
     }
 
