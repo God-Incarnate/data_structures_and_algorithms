@@ -40,6 +40,40 @@ public class ArrayListOp {
         // Time: O(n + m)
         // Space: O(m) new elements added
 
+        // =========================================================
+        // 3. ACCESS ELEMENT
+        // =========================================================
+
+        int val = list.get(2);
+        // Time: O(1) direct array access
+        // Space: O(1)
+
+
+        // =========================================================
+        // 4. UPDATE ELEMENT
+        // =========================================================
+
+        list.set(2, 999);
+        // Time: O(1)
+        // Space: O(1)
+
+
+        // =========================================================
+        // 5. REMOVE ELEMENT
+        // =========================================================
+
+        list.remove(1);
+        // Time: O(n) shift elements left
+        // Space: O(1)
+
+        list.remove(Integer.valueOf(30));
+        // Time: O(n) search + shift
+        // Space: O(1)
+
+        list.clear();
+        // Time: O(n) null all references
+        // Space: O(1)
+
     }
 }
 /*
