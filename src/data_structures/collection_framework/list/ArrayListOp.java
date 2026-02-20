@@ -74,6 +74,57 @@ public class ArrayListOp {
         // Time: O(n) null all references
         // Space: O(1)
 
+        // =========================================================
+        // 6. SEARCH OPERATIONS
+        // =========================================================
+
+        list.add(5);
+        list.add(10);
+        list.add(15);
+
+        boolean hasTen = list.contains(10);
+        // Time: O(n) linear search
+        // Space: O(1)
+
+        int index = list.indexOf(15);
+        // Time: O(n)
+        // Space: O(1)
+
+        int lastIndex = list.lastIndexOf(10);
+        // Time: O(n)
+        // Space: O(1)
+
+
+        // =========================================================
+        // 7. ITERATION
+        // =========================================================
+
+        for (int num : list) {
+            System.out.print(num + " ");
+        }
+        // Time: O(n)
+        // Space: O(1)
+
+        Iterator<Integer> it = list.iterator();
+        while (it.hasNext()) {
+            System.out.print(it.next() + " ");
+        }
+        // Time: O(n)
+        // Space: O(1)
+
+
+        // =========================================================
+        // 8. SORTING
+        // =========================================================
+
+        Collections.sort(list);
+        // Time: O(n log n) (TimSort)
+        // Space: O(log n)
+
+        list.sort(null);
+        // Same complexity
+
+
     }
 }
 /*
