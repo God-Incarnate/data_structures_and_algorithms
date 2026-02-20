@@ -174,6 +174,34 @@ public class ArrayListOp {
         // Space: O(1)
 
 
+        // =========================================================
+        // 12. IMPORTANT INTERVIEW PROGRAMS
+        // =========================================================
+
+        // Reverse ArrayList → O(n)
+        Collections.reverse(list);
+
+        // Find max → O(n)
+        int max = Collections.max(list);
+
+        // Remove duplicates → O(n)
+        ArrayList<Integer> dup = new ArrayList<>(Arrays.asList(1, 2, 2, 3, 3, 4));
+        Set<Integer> unique = new HashSet<>(dup);
+
+        // Frequency count → O(n)
+        Map<Integer, Integer> freq = new HashMap<>();
+        for (int num : dup)
+            freq.put(num, freq.getOrDefault(num, 0) + 1);
+
+
+        // =========================================================
+        // PRINT OUTPUT
+        // =========================================================
+        System.out.println("\nList: " + list);
+        System.out.println("Max Element: " + max);
+        System.out.println("Unique Elements: " + unique);
+        System.out.println("Frequency Map: " + freq);
+
     }
 }
 /*
