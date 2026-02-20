@@ -124,6 +124,55 @@ public class ArrayListOp {
         list.sort(null);
         // Same complexity
 
+        // =========================================================
+        // 9. COPYING / CONVERSION
+        // =========================================================
+
+        ArrayList<Integer> copy = new ArrayList<>(list);
+        // Time: O(n)
+        // Space: O(n)
+
+        Object[] arr = list.toArray();
+        // Time: O(n)
+        // Space: O(n)
+
+        ArrayList<Integer> cloned = (ArrayList<Integer>) list.clone();
+        // Time: O(n)
+        // Space: O(n)
+
+
+        // =========================================================
+        // 10. CAPACITY OPERATIONS
+        // =========================================================
+
+        list.ensureCapacity(50);
+        // Time: O(n) if resize happens
+        // Space: O(n)
+
+        list.trimToSize();
+        // Time: O(n)
+        // Space: O(n)
+
+
+        // =========================================================
+        // 11. BULK OPERATIONS
+        // =========================================================
+
+        ArrayList<Integer> removeList = new ArrayList<>();
+        removeList.add(10);
+
+        list.removeAll(removeList);
+        // Time: O(n * m)
+        // Space: O(1)
+
+        list.retainAll(removeList);
+        // Time: O(n * m)
+        // Space: O(1)
+
+        list.containsAll(removeList);
+        // Time: O(n * m)
+        // Space: O(1)
+
 
     }
 }
