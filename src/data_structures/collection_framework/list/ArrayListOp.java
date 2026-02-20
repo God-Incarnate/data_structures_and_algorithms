@@ -17,7 +17,28 @@ public class ArrayListOp {
         // Time Complexity: O(n) to allocate array of size n
         // Space Complexity: O(n)
 
+        // =========================================================
+        // 2. ADD ELEMENTS
+        // =========================================================
 
+        list.add(10);
+        // Time: O(1) amortized (occasionally O(n) during resize)
+        // Space: O(1)
+
+        list.add(20);
+        list.add(30);
+
+        list.add(1, 15);
+        // Time: O(n) because elements must shift right
+        // Space: O(1)
+
+        ArrayList<Integer> anotherList = new ArrayList<>();
+        anotherList.add(100);
+        anotherList.add(200);
+
+        list.addAll(anotherList);
+        // Time: O(n + m)
+        // Space: O(m) new elements added
 
     }
 }
