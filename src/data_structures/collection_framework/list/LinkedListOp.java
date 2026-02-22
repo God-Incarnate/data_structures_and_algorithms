@@ -66,6 +66,43 @@ public class LinkedListOp {
 
         list.clear();           // O(n)
 
+        // =====================================================
+        // 6. SEARCHING
+        // =====================================================
+        list.add(10);
+        list.add(20);
+        list.add(30);
+
+        boolean has20 = list.contains(20);
+        // Time: O(n)
+
+        int index = list.indexOf(30);
+        // Time: O(n)
+
+
+        // =====================================================
+        // 7. ITERATION
+        // =====================================================
+        for(int num : list) {   // O(n)
+            System.out.print(num + " ");
+        }
+
+        Iterator<Integer> it = list.iterator();
+        while(it.hasNext()) {   // O(n)
+            System.out.print(it.next() + " ");
+        }
+
+
+        // =====================================================
+        // 8. QUEUE OPERATIONS (Deque methods)
+        // =====================================================
+        list.offer(40);     // O(1)
+        list.offerFirst(5); // O(1)
+        list.offerLast(50); // O(1)
+
+        list.poll();        // O(1)
+        list.peek();        // O(1)
+
     }
 }
 
