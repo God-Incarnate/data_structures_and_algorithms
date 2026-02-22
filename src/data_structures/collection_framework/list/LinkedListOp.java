@@ -33,6 +33,38 @@ public class LinkedListOp {
         list.addAll(listFromCollection);
         // Time: O(n+m)
 
+        // =====================================================
+        // 3. ACCESS ELEMENT
+        // =====================================================
+        int val = list.get(2);
+        // Time: O(n)
+        // Space: O(1)
+
+        list.getFirst();  // O(1)
+        list.getLast();   // O(1)
+
+
+        // =====================================================
+        // 4. UPDATE ELEMENT
+        // =====================================================
+        list.set(2, 100);
+        // Time: O(n)
+
+
+        // =====================================================
+        // 5. REMOVE ELEMENT
+        // =====================================================
+        list.remove();          // O(1) remove first
+        list.removeFirst();     // O(1)
+        list.removeLast();      // O(1)
+
+        list.remove(1);
+        // Time: O(n) traverse
+
+        list.remove(Integer.valueOf(20));
+        // Time: O(n) search
+
+        list.clear();           // O(n)
 
     }
 }
