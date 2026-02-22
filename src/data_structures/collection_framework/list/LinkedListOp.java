@@ -103,6 +103,53 @@ public class LinkedListOp {
         list.poll();        // O(1)
         list.peek();        // O(1)
 
+        // =====================================================
+        // 9. STACK OPERATIONS
+        // =====================================================
+        list.push(99);   // O(1)
+        list.pop();      // O(1)
+
+
+        // =====================================================
+        // 10. SORTING
+        // =====================================================
+        Collections.sort(list);
+        // Time: O(n log n)
+        // Space: O(log n)
+
+
+        // =====================================================
+        // 11. COPYING
+        // =====================================================
+        LinkedList<Integer> copy = new LinkedList<>(list);
+        // Time: O(n)
+        // Space: O(n)
+
+        Object[] arr = list.toArray();
+        // Time: O(n)
+
+
+        // =====================================================
+        // 12. IMPORTANT INTERVIEW PROGRAMS
+        // =====================================================
+
+        // Reverse LinkedList → O(n)
+        Collections.reverse(list);
+
+        // Find max → O(n)
+        int max = Collections.max(list);
+
+        // Remove duplicates → O(n)
+        Set<Integer> unique = new HashSet<>(list);
+
+
+        // =====================================================
+        // PRINT OUTPUT
+        // =====================================================
+        System.out.println("\nList: " + list);
+        System.out.println("Max Element: " + max);
+        System.out.println("Unique Elements: " + unique);
+
     }
 }
 
