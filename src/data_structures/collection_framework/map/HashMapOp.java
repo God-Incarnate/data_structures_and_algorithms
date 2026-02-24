@@ -53,6 +53,53 @@ public class HashMapOp {
         map.remove("C", 3);
         // Time: O(1)
 
+        // =====================================================
+// 5. SEARCH OPERATIONS
+// =====================================================
+        map.containsKey("A");
+// Time: O(1)
+
+        map.containsValue(100);
+// Time: O(n)
+
+
+// =====================================================
+// 6. ITERATION
+// =====================================================
+        for(String key : map.keySet()) {
+            System.out.println(key);
+        }
+// Time: O(n)
+
+        for(Integer value : map.values()) {
+            System.out.println(value);
+        }
+// Time: O(n)
+
+        for(Map.Entry<String,Integer> e : map.entrySet()) {
+            System.out.println(e.getKey() + " -> " + e.getValue());
+        }
+// Time: O(n)
+
+
+// =====================================================
+// 7. SIZE & CLEAR
+// =====================================================
+        map.size();   // O(1)
+        map.isEmpty();// O(1)
+        map.clear();  // O(n)
+
+
+// =====================================================
+// 8. BULK OPERATIONS
+// =====================================================
+        HashMap<String,Integer> another = new HashMap<>();
+        another.put("X",10);
+        another.put("Y",20);
+
+        map.putAll(another);
+// Time: O(n+m)
+
     }
 }
 /*
