@@ -100,6 +100,44 @@ public class HashMapOp {
         map.putAll(another);
 // Time: O(n+m)
 
+        // =====================================================
+// 9. COMPUTE METHODS
+// =====================================================
+        map.put("A",1);
+
+        map.compute("A", (k,v) -> v==null?1:v+1);
+// Time: O(1)
+
+        map.computeIfAbsent("Z", k->5);
+// Time: O(1)
+
+        map.merge("A",1,Integer::sum);
+// Time: O(1)
+
+
+// =====================================================
+// 10. IMPORTANT INTERVIEW PROGRAMS
+// =====================================================
+
+// Frequency count → O(n)
+        int[] arr = {1,2,2,3,3,3};
+        HashMap<Integer,Integer> freq = new HashMap<>();
+
+        for(int num : arr)
+            freq.put(num, freq.getOrDefault(num,0)+1);
+
+// Find duplicates → O(n)
+        for(int key : freq.keySet())
+            if(freq.get(key) > 1)
+                System.out.println("Duplicate: " + key);
+
+
+// =====================================================
+// PRINT OUTPUT
+// =====================================================
+        System.out.println("Map: " + map);
+        System.out.println("Frequency Map: " + freq);
+
     }
 }
 /*
