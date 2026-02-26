@@ -171,6 +171,77 @@ Time Complexity: O(1)
 Space Complexity: O(1)
 */
 
+        // -------------------------------
+// 1️⃣2️⃣ entrySet()
+// -------------------------------
+        Set<Map.Entry<Integer, String>> entries = map.entrySet();
+
+/*
+Time Complexity: O(1)
+Space Complexity: O(1)
+*/
+
+
+// -------------------------------
+// 1️⃣3️⃣ Iterate LinkedHashMap
+// -------------------------------
+        for (Map.Entry<Integer, String> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
+
+/*
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+Iterates in insertion order.
+*/
+
+
+// -------------------------------
+// 1️⃣4️⃣ putIfAbsent()
+// -------------------------------
+        map.putIfAbsent(2, "Z");
+
+/*
+Average Time Complexity: O(1)
+Space Complexity: O(1)
+
+Adds only if key not present.
+*/
+
+
+// -------------------------------
+// 1️⃣5️⃣ replace()
+// -------------------------------
+        map.replace(3, "C", "NewC");
+
+/*
+Average Time Complexity: O(1)
+Space Complexity: O(1)
+*/
+
+
+// -------------------------------
+// 1️⃣6️⃣ Access-order LinkedHashMap
+// Used for LRU Cache
+// -------------------------------
+        LinkedHashMap<Integer, String> accessMap =
+                new LinkedHashMap<>(16, 0.75f, true);
+
+        accessMap.put(1, "One");
+        accessMap.put(2, "Two");
+        accessMap.get(1); // moves key 1 to end
+
+/*
+Time Complexity: O(1)
+Space Complexity: O(n)
+
+Access-order keeps recently used items last.
+Useful for LRU cache.
+*/
+
+        System.out.println(accessMap);
+
 
     }
 }
