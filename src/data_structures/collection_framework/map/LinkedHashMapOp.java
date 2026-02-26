@@ -118,6 +118,59 @@ public class LinkedHashMapOp {
         Space Complexity: O(1)
         */
 
+        // -------------------------------
+// 8️⃣ isEmpty()
+// -------------------------------
+        boolean empty = map.isEmpty();
+
+/*
+Time Complexity: O(1)
+Space Complexity: O(1)
+*/
+
+
+// -------------------------------
+// 9️⃣ clear()
+// -------------------------------
+        map.clear();
+
+/*
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+Removes all entries.
+*/
+
+
+// Reinsert for next examples
+        map.put(1, "A");
+        map.put(2, "B");
+        map.put(3, "C");
+
+
+// -------------------------------
+// 🔟 keySet()
+// -------------------------------
+        Set<Integer> keys = map.keySet();
+
+/*
+Time Complexity: O(1)
+Space Complexity: O(1)
+
+Returns view of keys.
+*/
+
+
+// -------------------------------
+// 1️⃣1️⃣ values()
+// -------------------------------
+        Collection<String> values = map.values();
+
+/*
+Time Complexity: O(1)
+Space Complexity: O(1)
+*/
+
 
     }
 }
