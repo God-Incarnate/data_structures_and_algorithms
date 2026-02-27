@@ -56,6 +56,79 @@ public class TreeMapOp {
         Time Complexity: O(log n)
         Space Complexity: O(1)
         */
+        // -------------------------------
+        // 4️⃣ containsKey(key)
+        // -------------------------------
+        boolean hasKey = map.containsKey(1);
+
+    /*
+    Time Complexity: O(log n)
+    Space Complexity: O(1)
+    */
+
+
+        // -------------------------------
+        // 5️⃣ containsValue(value)
+        // -------------------------------
+        boolean hasValue = map.containsValue("Apple");
+
+    /*
+    Time Complexity: O(n)
+    Must scan all nodes.
+    Space Complexity: O(1)
+    */
+
+
+        // -------------------------------
+        // 6️⃣ remove(key)
+        // -------------------------------
+        map.remove(3);
+
+    /*
+    Time Complexity: O(log n)
+    Tree re-balancing needed.
+    Space Complexity: O(1)
+    */
+
+
+        // -------------------------------
+        // 7️⃣ size()
+        // -------------------------------
+        int size = map.size();
+
+    /*
+    Time Complexity: O(1)
+    Space Complexity: O(1)
+    */
+
+
+        // -------------------------------
+        // 8️⃣ isEmpty()
+        // -------------------------------
+        boolean empty = map.isEmpty();
+
+    /*
+    Time Complexity: O(1)
+    Space Complexity: O(1)
+    */
+
+
+        // -------------------------------
+        // 9️⃣ clear()
+        // -------------------------------
+        map.clear();
+
+    /*
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+    */
+
+        // Reinsert values
+        map.put(10, "A");
+        map.put(20, "B");
+        map.put(30, "C");
+        map.put(40, "D");
+
 
 
     }
