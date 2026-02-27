@@ -176,6 +176,75 @@ public class TreeMapOp {
 
     Iteration is in sorted key order.
     */
+        // -------------------------------
+        // 1️⃣4️⃣ firstKey(), lastKey()
+        // -------------------------------
+        int first = map.firstKey();
+        int last = map.lastKey();
+
+    /*
+    Time Complexity: O(log n)
+    */
+
+
+        // -------------------------------
+        // 1️⃣5️⃣ higherKey(), lowerKey()
+        // -------------------------------
+        Integer higher = map.higherKey(20); // next bigger
+        Integer lower = map.lowerKey(20);   // next smaller
+
+    /*
+    Time Complexity: O(log n)
+    */
+
+
+        // -------------------------------
+        // 1️⃣6️⃣ ceilingKey(), floorKey()
+        // -------------------------------
+        Integer ceil = map.ceilingKey(25); // >= key
+        Integer floor = map.floorKey(25);  // <= key
+
+    /*
+    Time Complexity: O(log n)
+    */
+
+
+        // -------------------------------
+        // 1️⃣7️⃣ subMap(), headMap(), tailMap()
+        // -------------------------------
+        Map<Integer, String> sub = map.subMap(10, 30);
+        Map<Integer, String> head = map.headMap(30);
+        Map<Integer, String> tail = map.tailMap(20);
+
+    /*
+    Time Complexity: O(log n)
+    Space Complexity: O(1)
+    Views of map.
+    */
+
+
+        // -------------------------------
+        // 1️⃣8️⃣ putIfAbsent()
+        // -------------------------------
+        map.putIfAbsent(20, "Z");
+
+    /*
+    Time Complexity: O(log n)
+    Space Complexity: O(1)
+    */
+
+
+        // -------------------------------
+        // 1️⃣9️⃣ replace()
+        // -------------------------------
+        map.replace(40, "D", "NewD");
+
+    /*
+    Time Complexity: O(log n)
+    Space Complexity: O(1)
+    */
+
+        System.out.println("Final Map: " + map);
 
 
     }
