@@ -129,6 +129,53 @@ public class TreeMapOp {
         map.put(30, "C");
         map.put(40, "D");
 
+        // -------------------------------
+        // 🔟 keySet()
+        // -------------------------------
+        Set<Integer> keys = map.keySet();
+
+    /*
+    Time Complexity: O(1)
+    Space Complexity: O(1)
+    */
+
+
+        // -------------------------------
+        // 1️⃣1️⃣ values()
+        // -------------------------------
+        Collection<String> values = map.values();
+
+    /*
+    Time Complexity: O(1)
+    Space Complexity: O(1)
+    */
+
+
+        // -------------------------------
+        // 1️⃣2️⃣ entrySet()
+        // -------------------------------
+        Set<Map.Entry<Integer, String>> entries = map.entrySet();
+
+    /*
+    Time Complexity: O(1)
+    Space Complexity: O(1)
+    */
+
+
+        // -------------------------------
+        // 1️⃣3️⃣ Iterate TreeMap
+        // -------------------------------
+        for (
+                Map.Entry<Integer, String> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
+
+    /*
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+
+    Iteration is in sorted key order.
+    */
 
 
     }
