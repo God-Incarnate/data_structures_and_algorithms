@@ -98,6 +98,62 @@ public class HashSetOp {
         Time Complexity: O(1)
         Space Complexity: O(1)
         */
+        // ----------------------------------
+// 7️⃣ clear()
+// ----------------------------------
+        set.clear();
+
+/*
+Time Complexity: O(n)
+Space Complexity: O(1)
+*/
+
+// Reinsert values
+        set.add(5);
+        set.add(15);
+        set.add(25);
+
+
+// ----------------------------------
+// 8️⃣ Iterate HashSet
+// ----------------------------------
+
+// Method 1: for-each
+        for (Integer num : set) {
+            System.out.println(num);
+        }
+
+/*
+Time Complexity: O(n)
+Space Complexity: O(1)
+*/
+
+// Method 2: Iterator
+        Iterator<Integer> it = set.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
+
+/*
+Time Complexity: O(n)
+Space Complexity: O(1)
+*/
+
+
+// ----------------------------------
+// 9️⃣ addAll(Collection)
+// ----------------------------------
+        HashSet<Integer> other = new HashSet<>();
+        other.add(100);
+        other.add(200);
+
+        set.addAll(other);
+
+/*
+Time Complexity: O(m)
+m = size of other set
+Space Complexity: O(m)
+*/
 
 
 
