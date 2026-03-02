@@ -49,6 +49,55 @@ public class LinkedHashSetOp {
 
         System.out.println("Insertion Order Set: " + set);
 
+        // ----------------------------------
+        // 3️⃣ contains(element)
+        // ----------------------------------
+        boolean exists = set.contains(20);
+
+    /*
+    Time Complexity:
+        Average = O(1)
+        Worst = O(n)
+
+    Space Complexity: O(1)
+    */
+
+
+        // ----------------------------------
+        // 4️⃣ remove(element)
+        // ----------------------------------
+        set.remove(30);
+
+    /*
+    Time Complexity:
+        Average = O(1)
+        Worst = O(n)
+
+    Space Complexity: O(1)
+    */
+
+
+        // ----------------------------------
+        // 5️⃣ size()
+        // ----------------------------------
+        int size = set.size();
+
+    /*
+    Time Complexity: O(1)
+    Space Complexity: O(1)
+    */
+
+
+        // ----------------------------------
+        // 6️⃣ isEmpty()
+        // ----------------------------------
+        boolean empty = set.isEmpty();
+
+    /*
+    Time Complexity: O(1)
+    Space Complexity: O(1)
+    */
+
     }
 }
 /*
