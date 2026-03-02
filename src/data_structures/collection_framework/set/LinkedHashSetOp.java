@@ -157,6 +157,73 @@ public class LinkedHashSetOp {
     Space Complexity: O(m)
     */
 
+        // ----------------------------------
+        // 🔟 removeAll(Collection)
+        // ----------------------------------
+        set.removeAll(other);
+
+    /*
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+    */
+
+
+        // ----------------------------------
+        // 1️⃣1️⃣ retainAll(Collection)
+        // ----------------------------------
+        set.retainAll(other);
+
+    /*
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+    */
+
+
+        // ----------------------------------
+        // 1️⃣2️⃣ containsAll(Collection)
+        // ----------------------------------
+        boolean hasAll = set.containsAll(other);
+
+    /*
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+    */
+
+
+        // ----------------------------------
+        // 1️⃣3️⃣ toArray()
+        // ----------------------------------
+        Object[] arr = set.toArray();
+
+    /*
+    Time Complexity: O(n)
+    Space Complexity: O(n)
+    */
+
+
+        // ----------------------------------
+        // 1️⃣4️⃣ clone()
+        // ----------------------------------
+        LinkedHashSet<Integer> cloned = (LinkedHashSet<Integer>) set.clone();
+
+    /*
+    Time Complexity: O(n)
+    Space Complexity: O(n)
+    */
+
+
+        // ----------------------------------
+        // 1️⃣5️⃣ equals()
+        // ----------------------------------
+        boolean equal = set.equals(cloned);
+
+    /*
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+    */
+
+        System.out.println("Final Set: " + set);
+
     }
 }
 /*
