@@ -122,6 +122,88 @@ Time Complexity: O(log n)
 */
 
 
+        // ----------------------------------
+// 1️⃣1️⃣ pollFirst(), pollLast()
+// ----------------------------------
+        Integer removedFirst = set.pollFirst();
+        Integer removedLast = set.pollLast();
+/*
+Time Complexity: O(log n)
+*/
+
+// ----------------------------------
+// 1️⃣2️⃣ subSet(), headSet(), tailSet()
+// ----------------------------------
+        set.add(10);
+        set.add(20);
+        set.add(30);
+        set.add(40);
+
+        SortedSet<Integer> sub = set.subSet(10, 30);
+        SortedSet<Integer> head = set.headSet(30);
+        SortedSet<Integer> tail = set.tailSet(20);
+
+/*
+Time Complexity: O(log n)
+Space Complexity: O(1) (view of original set)
+*/
+
+// ----------------------------------
+// 1️⃣3️⃣ descendingSet()
+// ----------------------------------
+        NavigableSet<Integer> desc = set.descendingSet();
+/*
+Time Complexity: O(1)
+Space Complexity: O(1)
+*/
+
+// ----------------------------------
+// 1️⃣4️⃣ Iteration
+// ----------------------------------
+        for (Integer num : set) {
+            System.out.println(num);
+        }
+/*
+Time Complexity: O(n)
+Space Complexity: O(1)
+*/
+
+// Using iterator
+        Iterator<Integer> it = set.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
+/*
+Time Complexity: O(n)
+*/
+
+// ----------------------------------
+// 1️⃣5️⃣ toArray()
+// ----------------------------------
+        Object[] arr = set.toArray();
+/*
+Time Complexity: O(n)
+Space Complexity: O(n)
+*/
+
+// ----------------------------------
+// 1️⃣6️⃣ addAll(), removeAll(), retainAll()
+// ----------------------------------
+        TreeSet<Integer> other = new TreeSet<>();
+        other.add(100);
+        other.add(200);
+
+        set.addAll(other);      // O(m log n)
+        set.removeAll(other);   // O(m log n)
+        set.retainAll(other);   // O(n log m)
+
+/*
+m = size of other set
+*/
+
+        System.out.println("Final TreeSet: " + set);
+
+
     }
 }
 /*
