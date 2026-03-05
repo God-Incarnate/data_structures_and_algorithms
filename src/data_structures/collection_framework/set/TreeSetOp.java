@@ -71,6 +71,57 @@ public class TreeSetOp {
         // Space: O(1)
 
 
+        // ----------------------------------
+// 6️⃣ isEmpty()
+// ----------------------------------
+        boolean empty = set.isEmpty();
+// Time: O(1)
+// Space: O(1)
+
+// ----------------------------------
+// 7️⃣ clear()
+// ----------------------------------
+        set.clear();
+/*
+Time Complexity: O(n)
+Space Complexity: O(1)
+*/
+
+// Reinsert elements
+        set.add(5);
+        set.add(15);
+        set.add(25);
+        set.add(35);
+        set.add(45);
+
+// ----------------------------------
+// 8️⃣ first() & last()
+// ----------------------------------
+        int first = set.first();
+        int last = set.last();
+/*
+Time Complexity: O(log n)
+*/
+
+// ----------------------------------
+// 9️⃣ higher(), lower()
+// ----------------------------------
+        Integer higher = set.higher(25); // strictly greater
+        Integer lower = set.lower(25);   // strictly smaller
+/*
+Time Complexity: O(log n)
+*/
+
+// ----------------------------------
+// 🔟 ceiling(), floor()
+// ----------------------------------
+        Integer ceil = set.ceiling(26);  // >= element
+        Integer floor = set.floor(26);   // <= element
+/*
+Time Complexity: O(log n)
+*/
+
+
     }
 }
 /*
