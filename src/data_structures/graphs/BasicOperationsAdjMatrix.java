@@ -97,40 +97,101 @@ public class BasicOperationsAdjMatrix {
         return vertices.size();
     }
 
+    /*
+     * Removes a vertex from the graph.
+     * The vertex is removed from both:
+     * 1. vertices list
+     * 2. adjacency matrix (row and column)
+     */
     public static void removeVertex(int index) {
-        if (index> size()) {
+
+        // Check if the index is valid
+        // If index is greater than current number of vertices, throw an error
+        if (index > size()) {
             throw new IndexOutOfBoundsException();
         }
+
+        // Remove the vertex from the vertices list
         vertices.remove(index);
+
+        /*
+         * Remove the corresponding row from the adjacency matrix.
+         * Each row represents edges originating from that vertex.
+         */
         adjMatrix.remove(index);
+
+        /*
+         * Now remove the column corresponding to that vertex.
+         * Each column represents edges pointing to that vertex.
+         */
         for (List<Integer> listRow : adjMatrix){
             listRow.remove(index);
         }
     }
 
-    //i,j are indices
+
+    /*
+     * Adds an edge between two vertices in the graph.
+     * i and j represent the indices of vertices in the vertices list.
+     */
     public static void addEdge(int i, int j) {
-        if (i<0 || j<0 || i==j || i>size() || j>size()) {
+
+        /*
+         * Validate indices:
+         * - Negative indices are invalid
+         * - Self loops (i == j) are not allowed
+         * - Indices must be within graph size
+         */
+        if (i < 0 || j < 0 || i == j || i > size() || j > size()) {
             throw new IndexOutOfBoundsException();
         }
-        adjMatrix.get(i).set(j,1);
-        adjMatrix.get(j).set(i,1);
+
+        /*
+         * Since this is an undirected graph:
+         * If edge exists from i → j
+         * then edge must also exist from j → i
+         */
+        adjMatrix.get(i).set(j, 1);
+        adjMatrix.get(j).set(i, 1);
     }
 
-    //i,j are indices
+
+    /*
+     * Removes an edge between two vertices.
+     * Instead of deleting vertices, we simply mark the connection as 0.
+     */
     public static void removeEdge(int i, int j) {
-        if (i<0 || j<0 || i==j || i>size() || j>size()) {
+
+        // Validate indices similar to addEdge
+        if (i < 0 || j < 0 || i == j || i > size() || j > size()) {
             throw new IndexOutOfBoundsException();
         }
-        adjMatrix.get(i).set(j,0);
-        adjMatrix.get(j).set(i,0);
+
+        /*
+         * Set the matrix values back to 0
+         * meaning no edge exists between these vertices.
+         */
+        adjMatrix.get(i).set(j, 0);
+        adjMatrix.get(j).set(i, 0);
     }
 
+
+    /*
+     * Prints the graph structure.
+     * First prints vertices, then the adjacency matrix.
+     */
     public static void print(){
+
         System.out.println("Graph::::::");
+
+        // Print the vertex list
         System.out.println(vertices);
 
-        for (List<Integer> row: adjMatrix) {
+        /*
+         * Print adjacency matrix row by row
+         * Each row represents connections from that vertex.
+         */
+        for (List<Integer> row : adjMatrix) {
             System.out.println(row);
         }
     }
