@@ -33,6 +33,18 @@ public class BasicOperationsAdjMatrix {
         while(vertices.size() < 4){
             addVertex(((int) (Math.random() * 10)) + 1);
         }
+        addEdge(1, 3);
+        addEdge(2, 0);
+        addEdge(3, 0);
+
+        print();
+
+        removeVertex(1);
+        print();
+
+        removeEdge(0,2);
+        print();
+
     }
 
     /*
@@ -83,6 +95,44 @@ public class BasicOperationsAdjMatrix {
      */
     public static int size(){
         return vertices.size();
+    }
+
+    public static void removeVertex(int index) {
+        if (index> size()) {
+            throw new IndexOutOfBoundsException();
+        }
+        vertices.remove(index);
+        adjMatrix.remove(index);
+        for (List<Integer> listRow : adjMatrix){
+            listRow.remove(index);
+        }
+    }
+
+    //i,j are indices
+    public static void addEdge(int i, int j) {
+        if (i<0 || j<0 || i==j || i>size() || j>size()) {
+            throw new IndexOutOfBoundsException();
+        }
+        adjMatrix.get(i).set(j,1);
+        adjMatrix.get(j).set(i,1);
+    }
+
+    //i,j are indices
+    public static void removeEdge(int i, int j) {
+        if (i<0 || j<0 || i==j || i>size() || j>size()) {
+            throw new IndexOutOfBoundsException();
+        }
+        adjMatrix.get(i).set(j,0);
+        adjMatrix.get(j).set(i,0);
+    }
+
+    public static void print(){
+        System.out.println("Graph::::::");
+        System.out.println(vertices);
+
+        for (List<Integer> row: adjMatrix) {
+            System.out.println(row);
+        }
     }
 
 }
