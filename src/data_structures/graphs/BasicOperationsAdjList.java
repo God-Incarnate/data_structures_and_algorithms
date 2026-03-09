@@ -155,6 +155,39 @@ public class BasicOperationsAdjList {
         adjList.get(val2).remove(Integer.valueOf(val1));
     }
 
+    /*
+     * Breadth First Search (BFS) Traversal
+     *
+     * BFS is a graph traversal algorithm that explores the graph level by level.
+     * It visits all neighbors of a vertex before moving to the next level of vertices.
+     *
+     * Data Structures Used:
+     * 1. Queue  -> Maintains the order of vertices to be visited (FIFO).
+     * 2. Set    -> Keeps track of visited vertices to avoid infinite loops.
+     * 3. List   -> Stores the traversal result.
+     *
+     * Working:
+     * 1. Start from the given startVertex.
+     * 2. Mark it as visited and push it into the queue.
+     * 3. While the queue is not empty:
+     *      - Remove a vertex from the queue.
+     *      - Add it to the result list.
+     *      - Visit all its adjacent vertices.
+     *      - If a neighbor has not been visited, mark it visited and add it to the queue.
+     *
+     * Time Complexity:  O(V + E)
+     * Space Complexity: O(V)
+     *
+     * Example Traversal:
+     * If graph is:
+     * 1 -> [2,3]
+     * 2 -> [4]
+     * 3 -> []
+     * 4 -> []
+     *
+     * BFS starting from 1:
+     * Output: [1,2,3,4]
+     */
     public static void bfsTraversal(int startVertex) {
         List<Integer> res = new ArrayList<>();
         Set<Integer> visited=new HashSet<>();
@@ -176,6 +209,39 @@ public class BasicOperationsAdjList {
 
     }
 
+    /*
+     * Depth First Search (DFS) Traversal
+     *
+     * DFS explores a graph by going as deep as possible along each branch
+     * before backtracking.
+     *
+     * This implementation uses recursion.
+     *
+     * Data Structures Used:
+     * 1. Set -> Tracks visited vertices.
+     * 2. Recursion Stack -> Handles traversal depth.
+     *
+     * Working:
+     * 1. Start at the given startVertex.
+     * 2. Mark it as visited.
+     * 3. Print or process the vertex.
+     * 4. Recursively visit all unvisited neighboring vertices.
+     *
+     * The recursion naturally backtracks when no unvisited neighbors remain.
+     *
+     * Time Complexity:  O(V + E)
+     * Space Complexity: O(V) (due to recursion stack and visited set)
+     *
+     * Example Traversal:
+     * Graph:
+     * 1 -> [2,3]
+     * 2 -> [4]
+     * 3 -> []
+     * 4 -> []
+     *
+     * DFS starting from 1:
+     * Output: 1 2 4 3
+     */
     public static void dfsTraversal(int startVertex, Set<Integer> visited) {
         visited.add(startVertex);
         System.out.print(startVertex + " ");
