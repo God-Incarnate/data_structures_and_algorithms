@@ -29,6 +29,19 @@ public class BasicOperationsAdjList {
         System.out.println("\nBFS Traversal starting from vertex 0:::::::::");
         bfsTraversal(0);
 
+        System.out.println("\nDFS Traversal starting from vertex 0:::::::::");
+        dfsTraversal(0,new HashSet<>());
+
+        removeEdge(2,5);
+
+        System.out.println("\nGraph after removing edge b/w 10 & 5:::::::::");
+        print();
+
+
+        removeVertex(6);
+
+        System.out.println("\nGraph after removing vertex 6:::::::::");
+        print();
 
     }
     /*
@@ -163,5 +176,15 @@ public class BasicOperationsAdjList {
 
     }
 
+    public static void dfsTraversal(int startVertex, Set<Integer> visited) {
+        visited.add(startVertex);
+        System.out.print(startVertex + " ");
+        for(int connectedVertex: adjList.getOrDefault(startVertex,new ArrayList<>())) {
+            if(!visited.contains(connectedVertex)){
+                visited.add(connectedVertex);
+                dfsTraversal(connectedVertex, visited);
+            }
+        }
+    }
 
 }
