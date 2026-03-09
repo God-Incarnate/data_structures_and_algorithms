@@ -26,6 +26,9 @@ public class BasicOperationsAdjList {
         System.out.println("Actual graph:::::::::::::");
         print();
 
+        System.out.println("\nBFS Traversal starting from vertex 0:::::::::");
+        bfsTraversal(0);
+
 
     }
     /*
@@ -138,5 +141,27 @@ public class BasicOperationsAdjList {
         adjList.get(val1).remove(Integer.valueOf(val2));
         adjList.get(val2).remove(Integer.valueOf(val1));
     }
+
+    public static void bfsTraversal(int startVertex) {
+        List<Integer> res = new ArrayList<>();
+        Set<Integer> visited=new HashSet<>();
+        visited.add(startVertex);
+        Queue<Integer> queue= new LinkedList<>();
+        queue.offer(startVertex);
+
+        while(!queue.isEmpty()) {
+            int vertex=queue.poll();
+            res.add(vertex);
+            for (int connectedVertex: adjList.get(vertex)) {
+                if (!visited.contains(connectedVertex)) {
+                    queue.offer(connectedVertex);
+                    visited.add(connectedVertex);
+                }
+            }
+        }
+        System.out.println(res);
+
+    }
+
 
 }
