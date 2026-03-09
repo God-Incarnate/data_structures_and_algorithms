@@ -10,6 +10,23 @@ public class BasicOperationsAdjList {
             addVertex(i);
         }
 
+        addEdge(0,1);
+        addEdge(0,3);
+        addEdge(1,2);
+        addEdge(1,4);
+        addEdge(2,5);
+        addEdge(3,4);
+        addEdge(3,6);
+        addEdge(4,5);
+        addEdge(4,7);
+        addEdge(5,8);
+        addEdge(6,7);
+        addEdge(7,8);
+
+        System.out.println("Actual graph:::::::::::::");
+        print();
+
+
     }
     /*
      * Adds a new vertex to the graph.
@@ -104,4 +121,22 @@ public class BasicOperationsAdjList {
             System.out.println(e.getKey() + " -> " + e.getValue());
         }
     }
+
+    //val1, val2 are values(not indices)
+    public static void addEdge(int val1,int val2) {
+        if (!adjList.containsKey(val1) || !adjList.containsKey(val2) || val1==val2){
+            throw new IllegalArgumentException();
+        }
+        adjList.get(val1).add(val2);
+        adjList.get(val2).add(val1);
+    }
+
+    public static void removeEdge(int val1, int val2) {
+        if (!adjList.containsKey(val1) || !adjList.containsKey(val2) || val1==val2){
+            throw new IllegalArgumentException();
+        }
+        adjList.get(val1).remove(Integer.valueOf(val2));
+        adjList.get(val2).remove(Integer.valueOf(val1));
+    }
+
 }
