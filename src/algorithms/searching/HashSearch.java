@@ -30,4 +30,34 @@ public class HashSearch {
         }
     }
 }
+// OPTIMIZED Hash SEARCH:::::::::::::::::::::::::::::::
+/*
+import java.util.HashSet;
 
+public class OptimizedHashSearch {
+
+    static HashSet<Integer> set = new HashSet<>();
+
+    // Build hash only once
+    public static void buildHash(int[] arr) {
+        for (int num : arr) {
+            set.add(num);
+        }
+    }
+
+    // Search many times in O(1)
+    public static boolean search(int target) {
+        return set.contains(target);
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {10, 25, 5, 80, 30};
+
+        buildHash(arr);  // O(n) one-time cost
+
+        System.out.println(search(25)); // O(1)
+        System.out.println(search(100)); // O(1)
+    }
+}
+*/
