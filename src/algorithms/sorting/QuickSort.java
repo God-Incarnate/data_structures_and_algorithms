@@ -11,5 +11,12 @@ public class QuickSort {
 
         System.out.println(Arrays.toString(arr));
     }
+    public static void quickSort(int low,int high) {
+        if( low<high){
+            int pi=partition(low,high);
+            quickSort(low,pi-1);
+            quickSort(pi+1,high);
+        }
+    }
 
 }
