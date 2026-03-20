@@ -18,5 +18,24 @@ public class QuickSort {
             quickSort(pi+1,high);
         }
     }
+    public static void swap(int i,int j){
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+    }
+
+    public static int partition(int low,int high) {
+        int pivot = arr[high];
+        int i=low-1;
+
+        for (int j = low;j<high;j++){
+            if(arr[j]<pivot) {
+                i++;
+                swap(i,j);
+            }
+        }
+        swap(i+1,high);
+        return i+1;
+    }
 
 }
