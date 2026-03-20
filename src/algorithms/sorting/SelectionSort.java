@@ -10,6 +10,24 @@ public class SelectionSort {
         selectionSort();
         System.out.println(Arrays.toString(arr));
     }
+    public static void selectionSort(){
+        int n=arr.length;
+
+        for (int i=0;i<n;i++){
+            int minIndex =i,j=i;
+            while(j<n){
+                if(arr[j]< arr[minIndex]) {
+                    minIndex = j;
+                }
+                j++;
+            }
+            if (minIndex !=i){
+                int temp=arr[i];
+                arr[i]= arr[minIndex];
+                arr[minIndex]=temp;
+            }
+        }
+    }
 
 
 }
