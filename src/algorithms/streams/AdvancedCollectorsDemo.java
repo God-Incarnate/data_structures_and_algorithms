@@ -93,6 +93,19 @@ public class AdvancedCollectorsDemo {
                 ));
         System.out.println("namesByCity: " + namesByCity);
 
+        // 7. Multi-level grouping
+        Map<String, Map<String, List<User>>> multiGroup =
+                users.stream().collect(Collectors.groupingBy(
+                        User::getCity,
+                        Collectors.groupingBy(User::getDepartment)
+                ));
+        System.out.println("multiGroup: " + multiGroup);
+
+        // 8. partitioningBy
+        Map<Boolean, List<User>> partition =
+                users.stream().collect(Collectors.partitioningBy(u -> u.getAge() > 30));
+        System.out.println("partition age>30: " + partition);
+
         
     }
 }
