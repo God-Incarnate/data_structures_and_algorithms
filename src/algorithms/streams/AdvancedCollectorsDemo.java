@@ -77,6 +77,22 @@ public class AdvancedCollectorsDemo {
                 ));
         System.out.println("avgSalary: " + avgSalary);
 
+        // 5. groupingBy + maxBy
+        Map<String, Optional<User>> maxSalaryUser =
+                users.stream().collect(Collectors.groupingBy(
+                        User::getCity,
+                        Collectors.maxBy(Comparator.comparing(User::getSalary))
+                ));
+        System.out.println("maxSalaryUser: " + maxSalaryUser);
 
+        // 6. groupingBy + mapping
+        Map<String, List<String>> namesByCity =
+                users.stream().collect(Collectors.groupingBy(
+                        User::getCity,
+                        Collectors.mapping(User::getName, Collectors.toList())
+                ));
+        System.out.println("namesByCity: " + namesByCity);
+
+        
     }
 }
