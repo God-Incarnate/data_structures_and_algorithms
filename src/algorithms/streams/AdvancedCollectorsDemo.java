@@ -53,6 +53,14 @@ public class AdvancedCollectorsDemo {
                 users.stream().collect(Collectors.groupingBy(User::getCity));
         System.out.println("groupingBy city: " + byCity);
 
+        // 2. groupingBy + counting
+        Map<String, Long> countByCity =
+                users.stream().collect(Collectors.groupingBy(
+                        User::getCity,
+                        Collectors.counting()
+                ));
+        System.out.println("countByCity: " + countByCity);
 
+        
     }
 }
