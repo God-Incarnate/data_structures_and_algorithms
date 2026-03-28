@@ -129,6 +129,31 @@ public class AdvancedCollectorsDemo {
                         .collect(Collectors.joining(", "));
         System.out.println("joining: " + names);
 
+        // 12. summarizing
+        IntSummaryStatistics stats =
+                users.stream().collect(Collectors.summarizingInt(User::getSalary));
+        System.out.println("stats: " + stats);
+
+        // 13. toMap (handle duplicates)
+        Map<Integer, String> idToName =
+                users.stream().collect(Collectors.toMap(
+                        User::getId,
+                        User::getName,
+                        (a, b) -> a
+                ));
+        System.out.println("toMap: " + idToName);
+
+        // 14. filtering (Java 9+)
+        Map<String, List<User>> filtered =
+                users.stream().collect(Collectors.groupingBy(
+                        User::getCity,
+                        Collectors.filtering(
+                                u -> u.getSalary() > 60000,
+                                Collectors.toList()
+                        )
+                ));
+        System.out.println("filtered: " + filtered);
+
         
     }
 }
