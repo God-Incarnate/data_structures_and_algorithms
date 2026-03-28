@@ -106,6 +106,29 @@ public class AdvancedCollectorsDemo {
                 users.stream().collect(Collectors.partitioningBy(u -> u.getAge() > 30));
         System.out.println("partition age>30: " + partition);
 
+        // 9. partitioningBy + counting
+        Map<Boolean, Long> partitionCount =
+                users.stream().collect(Collectors.partitioningBy(
+                        u -> u.getAge() > 30,
+                        Collectors.counting()
+                ));
+        System.out.println("partitionCount: " + partitionCount);
+
+        // 10. collectingAndThen
+        List<User> immutableList =
+                users.stream().collect(Collectors.collectingAndThen(
+                        Collectors.toList(),
+                        Collections::unmodifiableList
+                ));
+        System.out.println("immutableList: " + immutableList);
+
+        // 11. joining
+        String names =
+                users.stream()
+                        .map(User::getName)
+                        .collect(Collectors.joining(", "));
+        System.out.println("joining: " + names);
+
         
     }
 }
