@@ -37,5 +37,22 @@ public class AdvancedCollectorsDemo {
             return name + "(" + salary + ")";
         }
     }
-    
+
+    public static void main(String[] args) {
+
+        List<User> users = Arrays.asList(
+                new User(1, "A", "Bangalore", "IT", 60000, 25, Arrays.asList("Java", "Spring")),
+                new User(2, "B", "Bangalore", "IT", 80000, 30, Arrays.asList("Java", "AWS")),
+                new User(3, "C", "Delhi", "HR", 40000, 28, Arrays.asList("Excel")),
+                new User(4, "D", "Delhi", "IT", 90000, 35, Arrays.asList("Java", "Docker")),
+                new User(5, "E", "Mumbai", "Finance", 70000, 40, Arrays.asList("Accounting"))
+        );
+
+        // 1. groupingBy (city)
+        Map<String, List<User>> byCity =
+                users.stream().collect(Collectors.groupingBy(User::getCity));
+        System.out.println("groupingBy city: " + byCity);
+
+
+    }
 }
