@@ -61,6 +61,22 @@ public class AdvancedCollectorsDemo {
                 ));
         System.out.println("countByCity: " + countByCity);
 
-        
+        // 3. groupingBy + summing
+        Map<String, Integer> salaryByCity =
+                users.stream().collect(Collectors.groupingBy(
+                        User::getCity,
+                        Collectors.summingInt(User::getSalary)
+                ));
+        System.out.println("salaryByCity: " + salaryByCity);
+
+        // 4. groupingBy + averaging
+        Map<String, Double> avgSalary =
+                users.stream().collect(Collectors.groupingBy(
+                        User::getCity,
+                        Collectors.averagingInt(User::getSalary)
+                ));
+        System.out.println("avgSalary: " + avgSalary);
+
+
     }
 }
