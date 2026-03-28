@@ -154,6 +154,24 @@ public class AdvancedCollectorsDemo {
                 ));
         System.out.println("filtered: " + filtered);
 
-        
+        // 15. flatMapping (Java 9+)
+        Map<String, List<String>> skillsByCity =
+                users.stream().collect(Collectors.groupingBy(
+                        User::getCity,
+                        Collectors.flatMapping(
+                                u -> u.getSkills().stream(),
+                                Collectors.toList()
+                        )
+                ));
+        System.out.println("skillsByCity: " + skillsByCity);
+
+        // 16. teeing (Java 12+)
+        double avg =
+                users.stream().collect(Collectors.teeing(
+                        Collectors.summingInt(User::getSalary),
+                        Collectors.counting(),
+                        (sum, count) -> (double) sum / count
+                ));
+        System.out.println("teeing avg salary: " + avg);
     }
 }
