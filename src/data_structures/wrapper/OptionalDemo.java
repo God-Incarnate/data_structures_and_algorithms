@@ -129,6 +129,56 @@ public class OptionalDemo {
 
         // ------------------------------------------------------
 
+        // 🔷 10. Difference: orElse vs orElseGet
 
+        System.out.println("---- orElse vs orElseGet ----");
+
+        String test1 = Optional.of("Hello")
+                .orElse(expensiveMethod()); // ALWAYS called
+
+        String test2 = Optional.of("Hello")
+                .orElseGet(() -> expensiveMethod()); // NOT called
+
+        System.out.println("test1: " + test1);
+        System.out.println("test2: " + test2);
+
+        // ------------------------------------------------------
+
+        // 🔷 11. Common Mistake: get() ❌
+
+        Optional<String> emptyOpt = Optional.empty();
+
+        try {
+            emptyOpt.get(); // ❌ throws exception
+        } catch (Exception e) {
+            System.out.println("get() error: " + e);
+        }
+
+        // ------------------------------------------------------
+
+        // 🔷 12. Optional chaining with null safety
+
+        User nullUser = null;
+
+        String safeName =
+                Optional.ofNullable(nullUser)
+                        .map(User::getName)
+                        .orElse("No User");
+
+        System.out.println("Safe Name: " + safeName);
+    }
+
+    // 🔷 Dummy method returning Optional
+    static Optional<User> findUserById(int id) {
+        if (id == 1) {
+            return Optional.of(new User("Prashant"));
+        }
+        return Optional.empty();
+    }
+
+    // 🔷 Expensive method for demo
+    static String expensiveMethod() {
+        System.out.println("Expensive method called!");
+        return "Fallback";
     }
 }
