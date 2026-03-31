@@ -62,6 +62,36 @@ public class OptionalDemo {
 
         // ------------------------------------------------------
 
+        // 🔷 4. map() → transform value
+
+        Optional<String> upper =
+                opt1.map(s -> s.toUpperCase());
+
+        System.out.println("map (toUpperCase): " + upper);
+
+        // ------------------------------------------------------
+
+        // 🔷 5. flatMap() → avoid nested Optional
+
+        Optional<String> flat =
+                opt1.flatMap(s -> Optional.of(s.toUpperCase()));
+
+        System.out.println("flatMap: " + flat);
+
+        // ------------------------------------------------------
+
+        // 🔷 6. filter()
+
+        Optional<Integer> number = Optional.of(10);
+
+        number.filter(n -> n > 5)
+                .ifPresent(n -> System.out.println("filter (>5): " + n));
+
+        number.filter(n -> n > 20)
+                .ifPresent(n -> System.out.println("This won't print"));
+
+        // ------------------------------------------------------
+
 
     }
 }
