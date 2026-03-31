@@ -92,6 +92,43 @@ public class OptionalDemo {
 
         // ------------------------------------------------------
 
+        // 🔷 7. Chaining (VERY IMPORTANT)
+
+        User user = new User("prashant");
+
+        String result =
+                Optional.ofNullable(user)
+                        .map(User::getName)
+                        .map(String::toUpperCase)
+                        .orElse("DEFAULT");
+
+        System.out.println("Chaining result: " + result);
+
+        // ------------------------------------------------------
+
+        // 🔷 8. Optional with Streams
+
+        List<Integer> list = Arrays.asList(1, 5, 3, 9);
+
+        Optional<Integer> max =
+                list.stream().max(Integer::compareTo);
+
+        max.ifPresent(m -> System.out.println("Max from stream: " + m));
+
+        // ------------------------------------------------------
+
+        // 🔷 9. Optional returning method example
+
+        Optional<User> userOpt = findUserById(1);
+
+        String name =
+                userOpt.map(User::getName)
+                        .orElse("Guest");
+
+        System.out.println("User name: " + name);
+
+        // ------------------------------------------------------
+
 
     }
 }
