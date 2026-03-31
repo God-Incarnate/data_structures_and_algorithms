@@ -42,5 +42,26 @@ public class OptionalDemo {
 
         // ------------------------------------------------------
 
+        // 🔷 3. Getting values safely
+
+        // orElse → always evaluated
+        String val1 = opt2.orElse("Default Value");
+        System.out.println("orElse: " + val1);
+
+        // orElseGet → evaluated only if needed (lazy)
+        String val2 = opt2.orElseGet(() -> "Generated Value");
+        System.out.println("orElseGet: " + val2);
+
+        // orElseThrow → throws exception if empty
+        try {
+            String val3 = opt2.orElseThrow(() -> new RuntimeException("Value not found"));
+            System.out.println(val3);
+        } catch (Exception e) {
+            System.out.println("orElseThrow: " + e.getMessage());
+        }
+
+        // ------------------------------------------------------
+
+
     }
 }
