@@ -96,6 +96,54 @@ public class ReduceDemo {
                         );
         System.out.println("Parallel Sum: " + parallelSum);
 
+        // 🔷 11. Demonstrating combiner (debug)
+        int debugParallel =
+                numbers.parallelStream()
+                        .reduce(
+                                0,
+                                (a, b) -> {
+                                    System.out.println("Accumulator: " + a + " + " + b);
+                                    return a + b;
+                                },
+                                (a, b) -> {
+                                    System.out.println("Combiner: " + a + " + " + b);
+                                    return a + b;
+                                }
+                        );
+        System.out.println("Debug Parallel Sum: " + debugParallel);
 
+        // 🔷 12. WRONG identity example ⚠️
+        int wrongSum =
+                numbers.stream()
+                        .reduce(10, Integer::sum);
+        System.out.println("Wrong Sum (identity=10): " + wrongSum);
+
+        // 🔷 13. Non-associative operation ⚠️
+        int wrongOperation =
+                numbers.stream()
+                        .reduce(0, (a, b) -> a - b);
+        System.out.println("Non-associative result: " + wrongOperation);
+
+        // 🔷 14. BAD usage (mutable object) ⚠️
+        List<Integer> badList =
+                numbers.stream()
+                        .reduce(
+                                new ArrayList<>(),
+                                (list, item) -> {
+                                    list.add(item); // BAD PRACTICE
+                                    return list;
+                                },
+                                (l1, l2) -> {
+                                    l1.addAll(l2);
+                                    return l1;
+                                }
+                        );
+        System.out.println("Bad List (avoid reduce for collections): " + badList);
+
+        // 🔷 15. Correct way (use collect)
+        List<Integer> goodList =
+                numbers.stream()
+                        .collect(Collectors.toList());
+        System.out.println("Good List (collect): " + goodList);
     }
 }
