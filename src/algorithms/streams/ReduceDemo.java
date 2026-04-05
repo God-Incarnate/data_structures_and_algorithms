@@ -49,6 +49,53 @@ public class ReduceDemo {
                 .reduce((a, b) -> a + b);
         System.out.println("Sum Optional: " + sumOptional.get());
 
+        // 🔷 4. Find max
+        int max = numbers.stream()
+                .reduce(Integer.MIN_VALUE, Integer::max);
+        System.out.println("Max: " + max);
+
+        // 🔷 5. Find min
+        int min = numbers.stream()
+                .reduce(Integer.MAX_VALUE, Integer::min);
+        System.out.println("Min: " + min);
+
+        // 🔷 6. Product (multiplication)
+        int product = numbers.stream()
+                .reduce(1, (a, b) -> a * b);
+        System.out.println("Product: " + product);
+
+        // 🔷 7. String concatenation
+        List<String> names = Arrays.asList("Java", "Streams", "Reduce");
+
+        String result = names.stream()
+                .reduce("", (a, b) -> a + " " + b);
+        System.out.println("Concatenation: " + result);
+
+        // 🔷 8. Reduce on objects (max salary user)
+        Optional<User> maxSalaryUser =
+                users.stream()
+                        .reduce((u1, u2) ->
+                                u1.salary > u2.salary ? u1 : u2
+                        );
+        System.out.println("Max salary user: " + maxSalaryUser.get());
+
+        // 🔷 9. Reduce after map (sum salaries)
+        int totalSalary =
+                users.stream()
+                        .map(User::getSalary)
+                        .reduce(0, Integer::sum);
+        System.out.println("Total salary: " + totalSalary);
+
+        // 🔷 10. Parallel reduce with combiner
+        int parallelSum =
+                numbers.parallelStream()
+                        .reduce(
+                                0,
+                                (a, b) -> a + b,
+                                (a, b) -> a + b
+                        );
+        System.out.println("Parallel Sum: " + parallelSum);
+
 
     }
 }
