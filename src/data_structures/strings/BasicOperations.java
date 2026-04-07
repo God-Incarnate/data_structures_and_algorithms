@@ -79,7 +79,8 @@ public class BasicOperations {
         // -------------------------------
         StringBuilder sb = new StringBuilder("Hello");
 
-        sb.append(" World");   // O(1) amortized
+        sb.append(" World");   // O(1) amortized, Amortized O(1) means that while some operations (like resizing in StringBuilder) take O(n),
+                               // the average time per operation over a sequence of operations remains constant.
         sb.insert(0,"Hi ");    // O(n)
         sb.delete(0,2);        // O(n)
         sb.reverse();          // O(n)

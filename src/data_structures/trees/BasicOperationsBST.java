@@ -3,7 +3,7 @@ package data_structures.trees;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BasicOperationsBST {
+public class  BasicOperationsBST {
     /**
      * Root node of the Binary Search Tree.
      * All insertions and traversals start from this node.
@@ -182,54 +182,66 @@ public class BasicOperationsBST {
     // Removes a node with value x from the Binary Search Tree
     public static void remove(int x) {
 
-        // If tree is empty, nothing to delete
         if (bstTree == null) {
             System.out.println("Tree is Empty!!");
             return;
         }
 
-        // Start traversal from root
         BTTreeNode current = bstTree;
-        BTTreeNode prev = bstTree;
+        BTTreeNode parent = null;
 
-        // Infinite loop until value is found or confirmed absent
-        while (current != null) {
+        // 🔹 1. Find the node to delete
+        while (current != null && current.val != x) {
+            parent = current;
 
-            // If x is smaller, go to left subtree
             if (x < current.val) {
-                prev = current;
                 current = current.left;
-            }
-            // If x is greater or equal, go to right subtree
-            else if (x > current.val) {
-                prev = current;
-                current = current.right;
             } else {
-                break;
+                current = current.right;
             }
         }
+
         if (current == null) {
             System.out.println("No such ELEMENT found.");
             return;
         }
+
+        // 🔹 2. Case: Node has 0 or 1 child
         if (current.left == null || current.right == null) {
-            BTTreeNode subtree = (current.left != null) ? current.left : current.right;
-            if (current!=bstTree){
-                if (prev.left == current) {
-                    prev.left = subtree;
-                } else {
-                    prev.right = subtree;
-                }
+
+            BTTreeNode child = (current.left != null) ? current.left : current.right;
+
+            // If deleting root
+            if (parent == null) {
+                bstTree = child;
+            } else if (parent.left == current) {
+                parent.left = child;
             } else {
-                bstTree=subtree;
+                parent.right = child;
             }
-        } else {
-            BTTreeNode swapNode=current.right;
-            while (swapNode.left!=null) {
-                swapNode=swapNode.left;
+        }
+
+        // 🔹 3. Case: Node has 2 children
+        else {
+
+            BTTreeNode successorParent = current;
+            BTTreeNode successor = current.right;
+
+            // Find inorder successor (leftmost of right subtree)
+            while (successor.left != null) {
+                successorParent = successor;
+                successor = successor.left;
             }
-            remove(swapNode.val);
-            current.val=swapNode.val;
+
+            // Replace value
+            current.val = successor.val;
+
+            // Delete successor (which has at most one child)
+            if (successorParent.left == successor) {
+                successorParent.left = successor.right;
+            } else {
+                successorParent.right = successor.right;
+            }
         }
     }
 }
