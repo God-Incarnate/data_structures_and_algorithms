@@ -32,7 +32,7 @@ public class HeapBasicOperations {
         printHeap(arr,"Min Heap");
 
         for (int i = (arr.length/2)-1;i>=0;i--) {
-            maxHeapCreatorHeapify(arr,i,arr.length);
+            maxHeapCreatorHeapify (arr,i,arr.length);
         }
         printHeap(arr,"Max Heap");
 

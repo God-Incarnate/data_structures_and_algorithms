@@ -66,6 +66,7 @@ public class BasicOperationsAdjList {
          * 5 -> []
          */
         adjList.put(val, newList);
+
     }
 
 
@@ -206,7 +207,6 @@ public class BasicOperationsAdjList {
             }
         }
         System.out.println(res);
-
     }
 
     /*
