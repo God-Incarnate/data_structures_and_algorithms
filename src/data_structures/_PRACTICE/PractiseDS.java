@@ -126,6 +126,9 @@ public class PractiseDS {
 
         //iteraion on set
         /* SAME AS LISTS */
+        System.out.println("SET PRINTING");
+        s3.forEach(System.out::print);
+        System.out.println("-----------------------");
 
         //Map
         Map<Integer,Integer> m1=new HashMap<>();// no order
@@ -140,17 +143,17 @@ public class PractiseDS {
         Map<Integer,Integer> m5=new TreeMap<>(); //ascending order of keys
         Map<Integer,Integer> copyOfM2=new HashMap<>(m2);
 
-        m2.put(3,5);
-        m2.put(3,6);
-        m2.putIfAbsent(4,5);
-        m2.remove(3);
-        m2.remove(4,5);
-        m2.get(2);
-        m2.getOrDefault(3,0);
-        m2.containsKey(3);
-        m2.containsValue(5);
-        m2.size();
-        m2.isEmpty();
+//        m2.put(3,5);
+//        m2.put(3,6);
+//        m2.putIfAbsent(4,5);
+//        m2.remove(3);
+//        m2.remove(4,5);
+//        m2.get(2);
+//        m2.getOrDefault(3,0);
+//        m2.containsKey(3);
+//        m2.containsValue(5);
+//        m2.size();
+//        m2.isEmpty();
 
         for(Map.Entry<Integer,Integer> entry:m2.entrySet()){
             System.out.println(entry.getKey()+" "+entry.getValue());

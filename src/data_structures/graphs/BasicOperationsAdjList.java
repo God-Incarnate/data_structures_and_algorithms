@@ -247,7 +247,6 @@ public class BasicOperationsAdjList {
         System.out.print(startVertex + " ");
         for(int connectedVertex: adjList.getOrDefault(startVertex,new ArrayList<>())) {
             if(!visited.contains(connectedVertex)){
-                visited.add(connectedVertex);
                 dfsTraversal(connectedVertex, visited);
             }
         }
